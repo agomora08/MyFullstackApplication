@@ -1,0 +1,4 @@
+# .gitignore file
+**/application.properties
+**/node_modules
+**/target
