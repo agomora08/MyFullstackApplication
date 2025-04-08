@@ -1,7 +1,6 @@
 import { User } from "../models/User";
 
 const API_BASE = 'http://18.226.251.141:8080';
-
 export const createUserProfile = async (data: {
   firstName: string;
   lastName: string;
@@ -26,7 +25,7 @@ export const getMyUserInfo = async () => {
 };
 
 export const getUserById = async (id: number) => {
-  const response = await fetch(`http://localhost:8080/users/${id}`, {
+  const response = await fetch(`http://18.226.251.141:8080/users/${id}`, {
     method: 'GET',
     credentials: 'include',
   });
@@ -35,7 +34,7 @@ export const getUserById = async (id: number) => {
 
 export const updateUser = async (userData: User): Promise<Response> => {
   console.log({userData})
-  return await fetch("http://localhost:8080/users/myuser", {
+  return await fetch("http://18.226.251.141:8080/users/myuser", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

@@ -1,7 +1,6 @@
 import { Address } from "../models/Address";
 
 const API_BASE_URL = 'http://18.226.251.141:8080';
-
 export const createAddress = async (data:{
     country: string;
     state: string;

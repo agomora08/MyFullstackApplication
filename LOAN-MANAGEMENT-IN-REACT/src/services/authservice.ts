@@ -1,6 +1,5 @@
 
 const API_BASE = 'http://18.226.251.141:8080';
-
 export const loginRequest = async (username: string, password: string) => {
   return await fetch(`${API_BASE}/auth/accounts/login`, {
     method: 'POST',

@@ -1,7 +1,6 @@
 import { Loan } from "../models/Loan";
 
 const API_BASE_URL = 'http://18.226.251.141:8080';
-
 export const createLoan = async (loan: any) =>{
   fetch(`${API_BASE_URL}/loan`, {
     method: 'POST',
@@ -32,7 +31,7 @@ export const getAllLoans = async () => {
 
 
 export const updateLoan = async (loanId: number, loanData : Loan): Promise<Response> =>{
-  return await fetch(`http://localhost:8080/loan/${loanId}`,{
+  return await fetch(`http://18.226.251.141:8080/loan/${loanId}`,{
     method :"PUT",
     headers: {
       "Content-type": "application/json",
@@ -44,7 +43,7 @@ export const updateLoan = async (loanId: number, loanData : Loan): Promise<Respo
 
 
 export const getLoanById = async (loanId: number): Promise<Response> => {
-  return await fetch(`http://localhost:8080/loan/${loanId}`, {
+  return await fetch(`http://18.226.251.141:8080/loan/${loanId}`, {
     method: "GET",
     credentials: "include",
   });
@@ -52,7 +51,7 @@ export const getLoanById = async (loanId: number): Promise<Response> => {
 
 
 export const getLoansByUser = async (): Promise<Response> => {
-  return await fetch("http://localhost:8080/loan/user", {
+  return await fetch("http://18.226.251.141:8080/loan/user", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

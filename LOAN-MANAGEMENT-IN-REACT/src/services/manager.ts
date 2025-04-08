@@ -1,6 +1,5 @@
 const API_BASE = 'http://18.226.251.141:8080';
 
-
 export const getAllUsers = async () => {
     return await fetch(`${API_BASE}/users`, {
         method: 'GET',
