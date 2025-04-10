@@ -41,11 +41,13 @@ function CompleteAddress(): JSX.Element{
               });
             setAddressCreated(true);
             setHasAddress(true);
+            console.log("FROM ADDRESS CREATION!");
+
         } else{
             console.error("This user already has address");
         }
     }
-
+/*
     useEffect(() => {
         if(hasAddress && addressCreated){
             setTimeout(() => {
@@ -54,7 +56,7 @@ function CompleteAddress(): JSX.Element{
             // navigate("/home", {replace: true});
         }
     },[hasAddress, addressCreated, navigate]);
-
+*/
     const handleChange = (setter: React.Dispatch<React.SetStateAction<string>>) => 
         (e: ChangeEvent<HTMLInputElement>) => setter(e.target.value);
 
