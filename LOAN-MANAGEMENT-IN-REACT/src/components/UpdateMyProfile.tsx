@@ -38,7 +38,7 @@ function UpdateMyProfile(): JSX.Element {
 
     try {
       const data = await res.json();
-      if (data?.idUser) {
+      if (data) {
         console.log("Api:");
         console.log(data);
          Swal.fire({
@@ -57,7 +57,7 @@ function UpdateMyProfile(): JSX.Element {
           }, 2000); 
         await login(); 
       } else {
-        setMessage(data["error: "] || "There's a prblem with updating the errro");
+        setMessage(data["error: "] || "There's a problem with updating the profile");
       }
     } catch (err) {
       setMessage("Error on processing the data");
