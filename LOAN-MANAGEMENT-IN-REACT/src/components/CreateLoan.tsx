@@ -86,11 +86,11 @@ function CreateLoan() {
         />
     
         <label htmlFor="loanStatusId">Loan Status ID</label>
-        <input
+        <input hidden
           id="loanStatusId"
           type="number"
           placeholder="Loan Status ID"
-          value={loanStatusId ?? ''}
+          value="3"
           onChange={(e) => setLoanStatusId(parseInt(e.target.value, 10))}
           required
         />
