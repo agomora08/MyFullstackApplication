@@ -204,7 +204,7 @@ useEffect(() => {
             <div className = "fst-italic">
               <b>Street number:</b></div>
             <div className = "fw-light">
-              <p className = "fst-italic">{address?.street}</p>
+              <p className = "fst-italic"><pre>     {address?.streetNum}</pre></p>
           </div>
         </li>
         <li className = "list-group-item d-flex justify-content-between">
@@ -314,7 +314,7 @@ useEffect(() => {
             <div className = "card-body">
               {/* <p className = "fs-6">No loan applications has been fulfilled</p> */}
               {loansError ? (
-                <p style={{ color: 'red' }}>{loansError}</p>
+                <p style={{ color: 'red', textAlign: 'center' }}>{loansError}</p>
                   ) : userLoans.length === 0 ? (
                     <p className="fs-6">No loan applications have been fulfilled</p>
                   ) : (
