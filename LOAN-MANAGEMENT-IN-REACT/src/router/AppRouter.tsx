@@ -58,7 +58,6 @@ export const AppRouter = (): JSX.Element => {
         <>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/*" element={<Navigate to="http://18.226.251.141:8080" />} />
           <Route path="/home" element={<Home />} />
         </>
       )}
