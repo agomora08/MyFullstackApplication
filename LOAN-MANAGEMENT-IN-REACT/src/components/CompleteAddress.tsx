@@ -1,10 +1,11 @@
-import { useState, useContext, useEffect, ChangeEvent, JSX } from 'react';
+import { useState, useContext, useEffect, ChangeEvent, FormEvent, JSX } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router';
 import { createAddress} from '../services/addressService';
 import './CompleteProfile.css';
 import Swal from 'sweetalert2';
+// import { createUserProfile } from '../services/user';
 
 function CompleteAddress(): JSX.Element{
     const { hasAddress, setHasAddress } = useContext(AuthContext);
@@ -18,6 +19,9 @@ function CompleteAddress(): JSX.Element{
     const [zip, setZip] = useState<string>('');
     const [addressCreated, setAddressCreated] = useState<boolean>(false);
 
+    const handleCreateAddress = async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+/*
     const handleCreateAddress = async () => {
         const address = {
             country,
@@ -26,9 +30,17 @@ function CompleteAddress(): JSX.Element{
             street,
             streetNum,
             zip
-        };
+        };*/
 
-        if(!hasAddress){
+    const response = await createAddress(
+      { country,
+        state, 
+        city,
+        street,
+        streetNum,
+        zip });
+
+        if(response.ok){
             Swal.fire({
                 toast:true,
                 title: 'Success!',
@@ -39,10 +51,9 @@ function CompleteAddress(): JSX.Element{
                 timer: 1000,
                 timerProgressBar: true,
               });
-            await createAddress(address);
+//            await createUserProfile();
             setAddressCreated(true);
             setHasAddress(true);
-            navigate("/home", { replace: true });
         } else{
             console.error("This user already has address");
         }
@@ -52,9 +63,10 @@ function CompleteAddress(): JSX.Element{
         if(hasAddress && addressCreated){
             setTimeout(() => {
                 console.log("INSIDE useEffect");
+                navigate("/home", { replace: true });
               }, 2000);
         }
-    },[hasAddress, addressCreated, navigate]);
+    }, [hasAddress, addressCreated, navigate]);
 
     const handleChange = (setter: React.Dispatch<React.SetStateAction<string>>) => 
         (e: ChangeEvent<HTMLInputElement>) => setter(e.target.value);
