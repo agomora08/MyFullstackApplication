@@ -47,11 +47,12 @@ function CompleteAddress(): JSX.Element{
 
     useEffect(() => {
         if(hasAddress && addressCreated){
+          /*
             setTimeout(() => {
                 navigate("/home", { replace: true });
               }, 2000);
-              
-            // navigate("/home", {replace: true});
+              */
+            navigate("/home", {replace: true});
         }
     },[hasAddress, addressCreated, navigate]);
 
