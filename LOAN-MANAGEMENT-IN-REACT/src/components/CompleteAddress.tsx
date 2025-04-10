@@ -27,8 +27,8 @@ function CompleteAddress(): JSX.Element{
             streetNum,
             zip
         };
+
         if(!hasAddress){
-            await createAddress(address);
             Swal.fire({
                 toast:true,
                 title: 'Success!',
@@ -37,12 +37,12 @@ function CompleteAddress(): JSX.Element{
                 showConfirmButton: false,
                 confirmButtonText: 'Accept',
                 timer: 1000,
-                     timerProgressBar: true,
+                timerProgressBar: true,
               });
+            await createAddress(address);
             setAddressCreated(true);
             setHasAddress(true);
-            console.log("FROM ADDRESS CREATION!");
-
+            navigate("/home", { replace: true });
         } else{
             console.error("This user already has address");
         }
@@ -52,7 +52,6 @@ function CompleteAddress(): JSX.Element{
         if(hasAddress && addressCreated){
             setTimeout(() => {
                 console.log("INSIDE useEffect");
-//                navigate("/home", { replace: true });
               }, 2000);
         }
     },[hasAddress, addressCreated, navigate]);
