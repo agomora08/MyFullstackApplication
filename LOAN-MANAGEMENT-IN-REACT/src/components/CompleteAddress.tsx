@@ -7,7 +7,7 @@ import './CompleteProfile.css';
 import Swal from 'sweetalert2';
 
 function CompleteAddress(): JSX.Element{
-    const { hasAddress } = useContext(AuthContext);
+    const { hasAddress, setHasAddress } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [country, setCountry] = useState<string>('');
@@ -40,6 +40,7 @@ function CompleteAddress(): JSX.Element{
                      timerProgressBar: true,
               });
             setAddressCreated(true);
+            setHasAddress(true);
         } else{
             console.error("This user already has address");
         }

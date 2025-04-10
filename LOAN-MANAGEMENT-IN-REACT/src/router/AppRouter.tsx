@@ -7,7 +7,7 @@ import Register from '../components/Register';
 import CompleteProfile from '../components/CompleteProfile';
 import CompleteAddress from '../components/CompleteAddress';
 import { AuthContext } from '../context/AuthContext';
-import { Navigate, Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import Home from '../pages/Home';
 import Login from '../components/Login';
 import CreateLoan from '../components/CreateLoan';
@@ -39,19 +39,17 @@ export const AppRouter = (): JSX.Element => {
             <Route path='/loan' element={<CreateLoan/>} />
             <Route path="/create-address" element={<CompleteAddress />} /> 
             <Route path="/myAddress" element={<UpdateAddress />} />
-            {/* <Route path="/update-loan/:" element={<UpdateLoan/>} /> */}
             <Route path="/update-loan/:loanId" element={<UpdateLoan />} />
             <Route path="/user/:userId" element={<GetUserById />} />
             <Route path="/loanbyid/:loanId2" element={<GetLoanById />} />
-            <Route path="/*" element={<Navigate to="/home" />} />
-            <Route path="/users" element={<ManagerUsers />} /> 
-            <Route path='/loans' element={<GetLoans/>} />         
-            
+            <Route path="/users" element={<ManagerUsers />} />
+            <Route path='/loans' element={<GetLoans/>} />
+            <Route path="/*" element={<Home />} />
             </>
         ) : (
           <>
             <Route path="/complete-profile" element={<CompleteProfile />} />
-            <Route path="/*" element={<Navigate to="/complete-profile" />} />
+            <Route path="/*" element={<CompleteProfile />} />
           </>
         )
       ) : (
@@ -59,7 +57,6 @@ export const AppRouter = (): JSX.Element => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/*" element={<Login />} />
-          <Route path="/home" element={<Home />} />
         </>
       )}
     </Routes>
