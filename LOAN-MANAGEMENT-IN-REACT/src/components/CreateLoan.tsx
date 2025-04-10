@@ -26,7 +26,7 @@ function CreateLoan() {
         console.log("Payload being sent:", payload);
 
         try {
-            const res = await fetch("http://18.226.251.141:8080/loan", {
+            const res = await fetch(`http://18.226.251.141:8080/loan`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -86,7 +86,6 @@ function CreateLoan() {
         />
 
 {/* <label htmlFor="loanStatusId">Loan Status ID</label> */}
-        <label htmlFor="loanStatusId">Loan Status ID</label>
         <input hidden
           id="loanStatusId"
           type="number"
