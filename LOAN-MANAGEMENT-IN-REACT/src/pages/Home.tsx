@@ -310,11 +310,11 @@ useEffect(() => {
           </div>
           <div className="card text-bg-light mb-3" style = {{width: "30rem",
                position: "absolute", top: "30%", right: "5%", fontSize: "20px",
-               color: "rgba(0, 0, 0, 1)"}}>
+               textAlign: "center", color: "rgba(0, 0, 0, 1)"}}>
             <div className = "card-body">
               {/* <p className = "fs-6">No loan applications has been fulfilled</p> */}
               {loansError ? (
-                <p style={{ color: 'red', textAlign: 'center' }}>{loansError}</p>
+                <p style={{ color: 'red' }}>{loansError}</p>
                   ) : userLoans.length === 0 ? (
                     <p className="fs-6">No loan applications have been fulfilled</p>
                   ) : (

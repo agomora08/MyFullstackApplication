@@ -69,7 +69,7 @@ function Login(): JSX.Element {
       <div className="shape"></div>
     </div>
     <form className="login-form" onSubmit={handleLogin}>
-      <h3>Inicio de sesión</h3>
+      <h3>Login</h3>
 
       <label htmlFor="username">Username</label>
       <input
